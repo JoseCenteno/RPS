@@ -9,15 +9,12 @@
 </h:head>
 <h:body>
 	<h:form>
-
-
-
+		<!-- Grid resume -->
 		<h:panelGrid columns="2" id="matchGrid" cellpadding="5">
 
 			<h:outputLabel for="txtRounds" value="Rounds:" />
 			<p:inputText id="txtRounds" value="#{gameBean.iterations}"
-				label="Rounds" readonly="true" />
-			
+				label="Rounds" readonly="true" />		
 			
 			<h:outputLabel for="txtPlayer1Wins" value="Player 1 wins:" />
 			<p:inputText id="txtPlayer1Wins" value="#{gameBean.winsPlayer1}"
@@ -31,12 +28,14 @@
 			<p:inputText id="txtDraw" value="#{gameBean.draw}" label="Draw"
 				readonly="true" />
 		</h:panelGrid>
-
+		<!--  Action command buttons -->
 		<p:commandButton update="matchGrid dtMoves" value="Play Round"
 			actionListener="#{gameBean.play}" />
 		<p:commandButton update="matchGrid dtMoves" value="Reset"
 			actionListener="#{gameBean.reset}" />
 		<p:commandButton action="stadistics" value="Global stadistics" />
+		
+		<!-- Round list -->
 		<h:panelGroup id="dtMoves" >
 			<p:dataTable var="move" value="#{gameBean.lstRound}">
 				<p:column headerText="Player 1">
