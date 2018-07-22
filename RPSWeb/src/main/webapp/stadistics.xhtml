@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>Rock Paper Scissors </title>
+</h:head>
+<h:body>
+	<h:form>
+
+
+
+		<h:panelGrid columns="2" id="matchGrid" cellpadding="5">
+
+			<h:outputLabel for="txtRounds" value="Total Rounds" />
+			<p:inputText id="txtRounds" value="#{stadisticBean.totalRounds}"
+				label="Total Rounds" readonly="true" />
+			
+			
+			<h:outputLabel for="txtPlayer1Wins" value="Player 1 wins:" />
+			<p:inputText id="txtPlayer1Wins" value="#{stadisticBean.winsPlayer1}"
+				label="Player1Wins" readonly="true" />
+
+			<h:outputLabel for="txtPlayer2Wins" value="Player 2 wins:" />
+			<p:inputText id="txtPlayer2Wins" value="#{stadisticBean.winsPlayer2}"
+				label="Player2Wins" readonly="true" />
+
+			<h:outputLabel for="txtDraw" value="Draw:" />
+			<p:inputText id="txtDraw" value="#{stadisticBean.draw}" label="Draw"
+				readonly="true" />
+		</h:panelGrid>
+
+		<p:commandButton action="index" value="Play" />
+		
+	</h:form>
+</h:body>
+</html>

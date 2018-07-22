@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<faces-config xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_1.xsd"	
+	version="2.1">
+
+ 	<managed-bean>
+		<description>
+            Bean to Game page
+        </description>
+		<managed-bean-name>gameBean</managed-bean-name>
+		<managed-bean-class>bean.GameBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+		<managed-property>
+      		<property-name>stadisticBean</property-name>
+      		<value>#{stadisticBean}</value> 
+      	</managed-property> 
+	</managed-bean>
+ 	<managed-bean>
+		<description>
+            Bean to stadistics game
+        </description>
+		<managed-bean-name>stadisticBean</managed-bean-name>
+		<managed-bean-class>bean.StadisticBean</managed-bean-class>
+		<managed-bean-scope>application</managed-bean-scope>
+	</managed-bean>	
+	
+	
+</faces-config>

@@ -1,0 +1,7 @@
+.idea/
+*.iml
+data/
+RPSLib/target/
+RPSWeb/target/
+.settings
+.project

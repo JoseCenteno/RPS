@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>Rock Paper Scissors</title>
+</h:head>
+<h:body>
+	<h:form>
+
+
+
+		<h:panelGrid columns="2" id="matchGrid" cellpadding="5">
+
+			<h:outputLabel for="txtRounds" value="Rounds:" />
+			<p:inputText id="txtRounds" value="#{gameBean.iterations}"
+				label="Rounds" readonly="true" />
+			
+			
+			<h:outputLabel for="txtPlayer1Wins" value="Player 1 wins:" />
+			<p:inputText id="txtPlayer1Wins" value="#{gameBean.winsPlayer1}"
+				label="Player1Wins" readonly="true" />
+
+			<h:outputLabel for="txtPlayer2Wins" value="Player 2 wins:" />
+			<p:inputText id="txtPlayer2Wins" value="#{gameBean.winsPlayer2}"
+				label="Player2Wins" readonly="true" />
+
+			<h:outputLabel for="txtDraw" value="Draw:" />
+			<p:inputText id="txtDraw" value="#{gameBean.draw}" label="Draw"
+				readonly="true" />
+		</h:panelGrid>
+
+		<p:commandButton update="matchGrid dtMoves" value="Play Round"
+			actionListener="#{gameBean.play}" />
+		<p:commandButton update="matchGrid dtMoves" value="Reset"
+			actionListener="#{gameBean.reset}" />
+		<p:commandButton action="stadistics" value="Global stadistics" />
+		<h:panelGroup id="dtMoves" >
+			<p:dataTable var="move" value="#{gameBean.lstRound}">
+				<p:column headerText="Player 1">
+					<h:outputText value="#{move.figure1.name}" />
+				</p:column>
+
+				<p:column headerText="Player 2">
+					<h:outputText value="#{move.figure2.name}" />
+				</p:column>
+
+				<p:column headerText="Win">
+					<h:outputText value="#{move.winner==0?'Draw': move.winner==1? 'Player 1 wins' : 'Player 2 wins'}" />
+				</p:column>
+
+			</p:dataTable>
+		</h:panelGroup>
+	</h:form>
+</h:body>
+</html>
